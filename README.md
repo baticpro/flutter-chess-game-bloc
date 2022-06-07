@@ -2,6 +2,8 @@
 
 Flutter chess game fully written on dart. In dependencies only [flutter_bloc](https://pub.dev/packages/flutter_bloc) library.
 
+![chess](https://user-images.githubusercontent.com/19287188/172387937-5b248aad-498c-4f8a-a1af-05abdc04499a.gif)
+
 ## Features
 
 I work with this repo only when I've a free time. But I don't have enough )))
