@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chess_game/bloc/app_blocs.dart';
 import 'package:flutter_chess_game/screens/game_screen.dart';
 
 void main() {
+  createAppBlocs();
+
   runApp(const MyApp());
 }
 
