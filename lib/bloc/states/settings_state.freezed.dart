@@ -16,7 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SettingsState {
-  GameColors? get playerColor => throw _privateConstructorUsedError;
+  Player get whitePlayer => throw _privateConstructorUsedError;
+  Player get blackPlayer => throw _privateConstructorUsedError;
   int get difficulty => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +31,7 @@ abstract class $SettingsStateCopyWith<$Res> {
           SettingsState value, $Res Function(SettingsState) then) =
       _$SettingsStateCopyWithImpl<$Res, SettingsState>;
   @useResult
-  $Res call({GameColors? playerColor, int difficulty});
+  $Res call({Player whitePlayer, Player blackPlayer, int difficulty});
 }
 
 /// @nodoc
@@ -46,14 +47,19 @@ class _$SettingsStateCopyWithImpl<$Res, $Val extends SettingsState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? playerColor = freezed,
+    Object? whitePlayer = null,
+    Object? blackPlayer = null,
     Object? difficulty = null,
   }) {
     return _then(_value.copyWith(
-      playerColor: freezed == playerColor
-          ? _value.playerColor
-          : playerColor // ignore: cast_nullable_to_non_nullable
-              as GameColors?,
+      whitePlayer: null == whitePlayer
+          ? _value.whitePlayer
+          : whitePlayer // ignore: cast_nullable_to_non_nullable
+              as Player,
+      blackPlayer: null == blackPlayer
+          ? _value.blackPlayer
+          : blackPlayer // ignore: cast_nullable_to_non_nullable
+              as Player,
       difficulty: null == difficulty
           ? _value.difficulty
           : difficulty // ignore: cast_nullable_to_non_nullable
@@ -70,7 +76,7 @@ abstract class _$$_SettingsStateCopyWith<$Res>
       __$$_SettingsStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({GameColors? playerColor, int difficulty});
+  $Res call({Player whitePlayer, Player blackPlayer, int difficulty});
 }
 
 /// @nodoc
@@ -84,14 +90,19 @@ class __$$_SettingsStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? playerColor = freezed,
+    Object? whitePlayer = null,
+    Object? blackPlayer = null,
     Object? difficulty = null,
   }) {
     return _then(_$_SettingsState(
-      playerColor: freezed == playerColor
-          ? _value.playerColor
-          : playerColor // ignore: cast_nullable_to_non_nullable
-              as GameColors?,
+      whitePlayer: null == whitePlayer
+          ? _value.whitePlayer
+          : whitePlayer // ignore: cast_nullable_to_non_nullable
+              as Player,
+      blackPlayer: null == blackPlayer
+          ? _value.blackPlayer
+          : blackPlayer // ignore: cast_nullable_to_non_nullable
+              as Player,
       difficulty: null == difficulty
           ? _value.difficulty
           : difficulty // ignore: cast_nullable_to_non_nullable
@@ -102,17 +113,23 @@ class __$$_SettingsStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SettingsState implements _SettingsState {
-  const _$_SettingsState({required this.playerColor, required this.difficulty});
+class _$_SettingsState extends _SettingsState {
+  const _$_SettingsState(
+      {required this.whitePlayer,
+      required this.blackPlayer,
+      required this.difficulty})
+      : super._();
 
   @override
-  final GameColors? playerColor;
+  final Player whitePlayer;
+  @override
+  final Player blackPlayer;
   @override
   final int difficulty;
 
   @override
   String toString() {
-    return 'SettingsState(playerColor: $playerColor, difficulty: $difficulty)';
+    return 'SettingsState(whitePlayer: $whitePlayer, blackPlayer: $blackPlayer, difficulty: $difficulty)';
   }
 
   @override
@@ -120,14 +137,17 @@ class _$_SettingsState implements _SettingsState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SettingsState &&
-            (identical(other.playerColor, playerColor) ||
-                other.playerColor == playerColor) &&
+            (identical(other.whitePlayer, whitePlayer) ||
+                other.whitePlayer == whitePlayer) &&
+            (identical(other.blackPlayer, blackPlayer) ||
+                other.blackPlayer == blackPlayer) &&
             (identical(other.difficulty, difficulty) ||
                 other.difficulty == difficulty));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, playerColor, difficulty);
+  int get hashCode =>
+      Object.hash(runtimeType, whitePlayer, blackPlayer, difficulty);
 
   @JsonKey(ignore: true)
   @override
@@ -136,13 +156,17 @@ class _$_SettingsState implements _SettingsState {
       __$$_SettingsStateCopyWithImpl<_$_SettingsState>(this, _$identity);
 }
 
-abstract class _SettingsState implements SettingsState {
+abstract class _SettingsState extends SettingsState {
   const factory _SettingsState(
-      {required final GameColors? playerColor,
+      {required final Player whitePlayer,
+      required final Player blackPlayer,
       required final int difficulty}) = _$_SettingsState;
+  const _SettingsState._() : super._();
 
   @override
-  GameColors? get playerColor;
+  Player get whitePlayer;
+  @override
+  Player get blackPlayer;
   @override
   int get difficulty;
   @override

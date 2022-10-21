@@ -19,6 +19,12 @@ class CellWidget extends StatelessWidget {
 
   _onTap(BuildContext context) {
     final gameCubit = GetIt.I<GameCubit>();
+
+    // if AI calculating position => block any interactions
+    if (gameCubit.state.isAIthinking) {
+      return;
+    }
+
     final activeColor = gameCubit.state.activeColor;
 
     if (isAvailable || (cell.occupied && isAvailable)) {

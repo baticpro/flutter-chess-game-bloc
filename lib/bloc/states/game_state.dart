@@ -12,11 +12,13 @@ class GameState {
   final Cell? selectedCell;
   final Set<String> availablePositionsHash;
   final GameColors activeColor;
+  final bool isAIthinking;
 
   GameState(
       {required this.selectedCell,
       required this.availablePositionsHash,
       required this.activeColor,
+      required this.isAIthinking,
       required this.board});
 
   GameState copyWith({
@@ -24,6 +26,7 @@ class GameState {
     final Set<String>? availablePositionsHash,
     final Board? board,
     final GameColors? activeColor,
+    final bool? isAIthinking,
   }) {
     return GameState(
       board: board ?? this.board,
@@ -32,6 +35,7 @@ class GameState {
           availablePositionsHash ?? this.availablePositionsHash,
       selectedCell:
           selectedCell != null ? selectedCell.value : this.selectedCell,
+      isAIthinking: isAIthinking ?? this.isAIthinking,
     );
   }
 }

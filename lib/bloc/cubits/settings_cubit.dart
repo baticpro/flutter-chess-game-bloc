@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chess_game/bloc/states/settings_state.dart';
 import 'package:flutter_chess_game/models/board.dart';
 import 'package:flutter_chess_game/models/lost_figures.dart';
+import 'package:flutter_chess_game/models/player.dart';
 
 class SettingsCubit extends Cubit<SettingsState> {
   SettingsCubit(SettingsState initialState) : super(initialState);
@@ -12,8 +13,9 @@ class SettingsCubit extends Cubit<SettingsState> {
     board.createCells();
     board.putFigures();
 
-    return SettingsCubit(const SettingsState(
-      playerColor: null,
+    return SettingsCubit(SettingsState(
+      whitePlayer: Player.human(),
+      blackPlayer: Player.human(),
       difficulty: 1,
     ));
   }
