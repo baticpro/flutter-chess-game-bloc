@@ -15,7 +15,7 @@ class LostFiguresWidget extends StatelessWidget {
           itemCount: figures.length,
           itemBuilder: (context, index) {
             return SizedBox(
-              child: Image.asset(figures[0].imageAsset),
+              child: Image.asset(figures[index].imageAsset),
               width: 30,
               height: 40,
             );
