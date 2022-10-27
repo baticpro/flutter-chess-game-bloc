@@ -35,7 +35,7 @@ class GameCubit extends Cubit<GameState> {
 
   void selectCell(Cell? newCell) {
     emit(state.copyWith(
-        selectedCell: Wrapped.value(newCell),
+        selectedCell: newCell,
         availablePositionsHash:
             state.board.getAvailablePositionsHash(newCell)));
   }
