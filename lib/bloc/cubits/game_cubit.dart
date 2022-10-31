@@ -6,10 +6,16 @@ import 'package:flutter_chess_game/models/board.dart';
 import 'package:flutter_chess_game/models/cell.dart';
 import 'package:flutter_chess_game/models/game_colors.dart';
 import 'package:flutter_chess_game/models/lost_figures.dart';
+import 'package:flutter_chess_game/repositories/ai_repository.dart';
+import 'package:flutter_chess_game/services/loggers/move_logger.dart';
 import 'package:get_it/get_it.dart';
 
 class GameCubit extends Cubit<GameState> {
-  GameCubit(GameState initialState) : super(initialState);
+  final MoveLogger _moveLogger;
+  final AIRepository _aiRepository;
+
+  GameCubit(GameState initialState, this._moveLogger, this._aiRepository)
+      : super(initialState);
 
   factory GameCubit.initial() {
     final board =
@@ -17,15 +23,12 @@ class GameCubit extends Cubit<GameState> {
     board.createCells();
     board.putFigures();
 
-    return GameCubit(GameState(
-        activeColor: GameColors.white,
-        selectedCell: null,
-        board: board,
-        isAIthinking: false,
-        availablePositionsHash: {}));
+    return GameCubit(createInitialGameState(board), createMoveLogger(),
+        AIRepository.initial());
   }
 
   void startBattle() {
+    _moveLogger.clear();
     final settings = _getSettings();
 
     if (settings.hasAI && !settings.whitePlayer.isHuman) {
@@ -59,6 +62,8 @@ class GameCubit extends Cubit<GameState> {
       await _scheduleAIMove();
     }
 
+    _moveLogger.add(toCell);
+
     emit(state.copyWith(
         board: state.board.copyThis(),
         activeColor: state.activeColor.getOpposite()));
@@ -68,6 +73,9 @@ class GameCubit extends Cubit<GameState> {
 
   Future<void> _scheduleAIMove() async {
     state.copyWith(isAIthinking: true);
+
+    await _aiRepository.fetchBestMove(board: state.board);
+
     state.copyWith(isAIthinking: false);
   }
 

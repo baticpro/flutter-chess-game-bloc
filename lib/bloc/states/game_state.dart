@@ -17,3 +17,10 @@ class GameState with _$GameState {
     required bool isAIthinking,
   }) = _GameState;
 }
+
+GameState createInitialGameState(Board board) => GameState(
+    activeColor: GameColors.white,
+    selectedCell: null,
+    board: board,
+    isAIthinking: false,
+    availablePositionsHash: {});
