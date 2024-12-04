@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chess_game/bloc/app_blocs.dart';
-import 'package:flutter_chess_game/screens/game_screen.dart';
+import 'package:flutter_chess_game/features/game/presentation/pages/game_page.dart';
 
 void main() {
   createAppBlocs();
@@ -9,7 +9,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const GameScreen(),
+      home: const GamePage(),
     );
   }
 }

@@ -1,5 +1,5 @@
-import 'package:flutter_chess_game/models/game_colors.dart';
-import 'package:flutter_chess_game/models/player.dart';
+import 'package:flutter_chess_game/features/game/domain/entities/game_colors.dart';
+import 'package:flutter_chess_game/features/game/domain/entities/player.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'settings_state.freezed.dart';
