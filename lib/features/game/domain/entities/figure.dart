@@ -41,4 +41,7 @@ abstract class Figure {
   void onMoved(Cell to) {
     cell = to;
   }
+
+  @override
+  toString() => type.name;
 }

@@ -92,4 +92,14 @@ class Board {
     Queen(color: GameColors.white, cell: getCellAt(3, 7));
     Queen(color: GameColors.black, cell: getCellAt(3, 0));
   }
+
+  @override
+  String toString() {
+    return cells.fold('\n', (result, row) {
+      final rowString = '[${row.map((cell) {
+        return cell.getFigure()?.toString()[0] ?? '.';
+      }).join(' ')}]';
+      return '$result$rowString\n';
+    });
+  }
 }

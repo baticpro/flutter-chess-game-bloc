@@ -13,14 +13,12 @@ class BoardInputUseCase {
 class BoardUseCase extends UseCase<BoardInputUseCase> {
   final Board board;
 
-  List<Figure> blackLost;
-  List<Figure> whiteLost;
+  final List<Figure> blackLost = [];
+  final List<Figure> whiteLost = [];
 
   BoardUseCase({
     required this.board,
     required super.input,
-    this.blackLost = const [],
-    this.whiteLost = const [],
   });
 
   void pushFigureLoLost(Figure lostFigure) {
@@ -37,7 +35,7 @@ class BoardUseCase extends UseCase<BoardInputUseCase> {
     return input.calculator.getAvailablePositionsHash(selectedCell);
   }
 
-  void moveFigure(Cell fromCell, Cell toCell) async {
+  void moveFigure(Cell fromCell, Cell toCell) {
     final lostFigure = fromCell.moveFigureAndReturnLost(
       toCell,
       input.calculator,
