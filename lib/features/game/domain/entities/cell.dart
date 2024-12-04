@@ -47,20 +47,15 @@ class Cell {
     }
 
     final figure = _figure!;
+    final occupiedInTarget = target.getFigure();
 
     if (figure.availableForMove(target, calculator)) {
-      if (target.occupied) {
-        assert(target.getFigure() != null);
-
-        return target.getFigure();
-      }
-
       target.setFigure(figure);
       figure.onMoved(target);
 
       _figure = null;
     }
 
-    return null;
+    return occupiedInTarget;
   }
 }

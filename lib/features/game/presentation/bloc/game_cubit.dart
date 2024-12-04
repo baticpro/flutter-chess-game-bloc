@@ -9,7 +9,13 @@ class GameCubit extends Cubit<GameState> {
   GameCubit(
     super.initialState, {
     required this.boardUseCase,
-  });
+  }) {
+    emit(
+      state.copyWith(
+        board: boardUseCase.board,
+      ),
+    );
+  }
 
   void selectCell(Cell? newCell) {
     emit(
