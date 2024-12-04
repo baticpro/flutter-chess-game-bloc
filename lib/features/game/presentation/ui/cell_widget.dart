@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chess_game/config/colors.dart';
 import 'package:flutter_chess_game/features/game/domain/entities/cell.dart';
 import 'package:flutter_chess_game/features/game/presentation/bloc/game_cubit.dart';
 import 'package:flutter_chess_game/features/game/presentation/ui/figure_widget.dart';
-import 'package:get_it/get_it.dart';
 
 class CellWidget extends StatelessWidget {
   final Cell cell;
@@ -18,7 +18,7 @@ class CellWidget extends StatelessWidget {
   });
 
   _onTap(BuildContext context) {
-    final gameCubit = GetIt.I<GameCubit>();
+    final gameCubit = context.read<GameCubit>();
 
     // if AI calculating position => block any interactions
     if (gameCubit.state.isAIthinking) {

@@ -1,24 +1,17 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_chess_game/bloc/app_blocs.dart';
-import 'package:flutter_chess_game/features/game/presentation/pages/game_page.dart';
+import 'package:flutter_chess_game/app/game_app.dart';
+import 'package:flutter_chess_game/app/game_enviroment.dart';
 
-void main() {
-  createAppBlocs();
+void main() async {
+  await runZonedGuarded(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
+      await createDependencies();
 
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Chess Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const GamePage(),
-    );
-  }
+      runApp(GameApp());
+    },
+    (error, stack) => {},
+  );
 }

@@ -19,4 +19,14 @@ class GameState with _$GameState {
     required List<Figure> blackLost,
     required List<Figure> whiteLost,
   }) = _GameState;
+
+  factory GameState.initial() => GameState(
+        activeColor: GameColors.white,
+        selectedCell: null,
+        board: Board.startCellPositions(),
+        isAIthinking: false,
+        availablePositionsHash: {},
+        blackLost: [],
+        whiteLost: [],
+      );
 }

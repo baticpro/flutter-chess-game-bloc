@@ -1,14 +1,18 @@
 enum GameColors {
   white,
-  black,
-}
+  black;
 
-extension GameColorsExt on GameColors {
-  String toName() {
-    return toString().split('.').last;
+  @override
+  String toString() {
+    return name.split('.').last;
   }
 
   GameColors getOpposite() {
-    return this == GameColors.white ? GameColors.black : GameColors.white;
+    const oppositeColors = {
+      GameColors.white: GameColors.black,
+      GameColors.black: GameColors.white,
+    };
+
+    return oppositeColors[this]!;
   }
 }
