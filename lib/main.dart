@@ -12,6 +12,8 @@ void main() async {
 
       runApp(GameApp());
     },
-    (error, stack) => {},
+    (error, stack) => {
+      // TODO(batraz): Implement error handling
+    },
   );
 }
