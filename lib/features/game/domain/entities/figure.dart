@@ -1,7 +1,7 @@
 import 'package:flutter_chess_game/features/game/domain/entities/cell.dart';
 import 'package:flutter_chess_game/features/game/domain/entities/figure_types.dart';
 import 'package:flutter_chess_game/features/game/domain/entities/game_colors.dart';
-import 'package:flutter_chess_game/features/game/domain/entities/i_cell_calculator.dart';
+import 'package:flutter_chess_game/features/game/domain/entities/i_figure_moving_calculator.dart';
 
 abstract class Figure {
   final GameColors color;
