@@ -8,7 +8,7 @@ import 'package:flutter_chess_game/features/game/domain/entities/cell_position.d
 import 'package:flutter_chess_game/features/game/domain/entities/game_colors.dart';
 import 'package:flutter_chess_game/features/game/domain/entities/i_figure_moving_calculator.dart';
 
-class CellCalculationUseCase extends UseCase
+final class CellCalculationUseCase extends UseCase
     implements IFigureMovingCalculator {
   Board board;
 

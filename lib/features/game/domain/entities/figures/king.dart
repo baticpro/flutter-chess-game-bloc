@@ -1,7 +1,7 @@
 import 'package:flutter_chess_game/features/game/domain/entities/figure.dart';
 import 'package:flutter_chess_game/features/game/domain/entities/figure_types.dart';
 
-class King extends Figure {
+final class King extends Figure {
   King({required super.color, required super.cell})
       : super(type: FigureTypes.king);
 

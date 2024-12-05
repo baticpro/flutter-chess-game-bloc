@@ -4,13 +4,13 @@ import 'package:flutter_chess_game/features/game/domain/entities/cell.dart';
 import 'package:flutter_chess_game/features/game/domain/entities/figure.dart';
 import 'package:flutter_chess_game/features/game/domain/usecases/cell_calculation_usecase.dart';
 
-class BoardInputUseCase {
+final class BoardInputUseCase {
   final CellCalculationUseCase calculator;
 
   BoardInputUseCase({required this.calculator});
 }
 
-class BoardUseCase extends UseCase<BoardInputUseCase> {
+final class BoardUseCase extends UseCase<BoardInputUseCase> {
   final Board board;
 
   final List<Figure> blackLost = [];

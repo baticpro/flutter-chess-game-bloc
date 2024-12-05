@@ -9,7 +9,7 @@ import 'package:flutter_chess_game/features/game/domain/entities/figures/queen.d
 import 'package:flutter_chess_game/features/game/domain/entities/figures/rook.dart';
 import 'package:flutter_chess_game/features/game/domain/entities/game_colors.dart';
 
-class Board {
+base class Board {
   final List<List<Cell>> cells;
 
   Board({

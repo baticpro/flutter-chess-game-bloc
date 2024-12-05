@@ -3,7 +3,7 @@ import 'package:flutter_chess_game/features/game/domain/entities/figure_types.da
 import 'package:flutter_chess_game/features/game/domain/entities/game_colors.dart';
 import 'package:flutter_chess_game/features/game/domain/entities/i_figure_moving_calculator.dart';
 
-abstract class Figure {
+abstract base class Figure {
   final GameColors color;
   final FigureTypes type;
 

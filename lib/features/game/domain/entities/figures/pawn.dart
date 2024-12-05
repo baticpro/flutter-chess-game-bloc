@@ -2,7 +2,7 @@ import 'package:flutter_chess_game/features/game/domain/entities/cell.dart';
 import 'package:flutter_chess_game/features/game/domain/entities/figure.dart';
 import 'package:flutter_chess_game/features/game/domain/entities/figure_types.dart';
 
-class Pawn extends Figure {
+final class Pawn extends Figure {
   bool _canDoubleMove = true;
 
   Pawn({required super.color, required super.cell})

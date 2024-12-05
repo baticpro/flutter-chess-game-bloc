@@ -3,7 +3,7 @@ import 'package:flutter_chess_game/features/game/domain/entities/cell.dart';
 import 'package:flutter_chess_game/features/game/domain/usecases/board_usecase.dart';
 import 'package:flutter_chess_game/features/game/presentation/bloc/game_state.dart';
 
-class GameCubit extends Cubit<GameState> {
+base class GameCubit extends Cubit<GameState> {
   final BoardUseCase boardUseCase;
 
   GameCubit(

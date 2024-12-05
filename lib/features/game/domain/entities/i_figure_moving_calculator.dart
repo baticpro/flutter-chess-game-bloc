@@ -1,6 +1,6 @@
 import 'package:flutter_chess_game/features/game/domain/entities/cell.dart';
 
-abstract class IFigureMovingCalculator {
+abstract interface class IFigureMovingCalculator {
   bool hasVerticalWay(Cell from, Cell target);
   bool hasHorizontalWay(Cell from, Cell target);
   bool hasDiagonalWay(Cell from, Cell target);

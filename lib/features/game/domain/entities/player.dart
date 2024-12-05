@@ -1,4 +1,4 @@
-class Player {
+base class Player {
   final bool isHuman;
   final String name;
 

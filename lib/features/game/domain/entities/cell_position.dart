@@ -1,6 +1,6 @@
 import 'dart:math';
 
-class CellPosition {
+base class CellPosition {
   final int x;
   final int y;
 
