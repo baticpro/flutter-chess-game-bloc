@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             HomeMenuItemButton(
-              onTap: () => context.router.push(GameRoute(mode: GameMode.pVsP)),
+              onTap: () => context.router.push(SettingsRoute()),
               title: 'Settings',
             ),
           ],

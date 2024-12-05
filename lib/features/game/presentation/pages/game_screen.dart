@@ -12,6 +12,7 @@ class GameScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Game')),
       backgroundColor: AppColors.white,
       body: BlocBuilder<GameCubit, GameState>(
         builder: (context, state) {
