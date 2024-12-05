@@ -15,17 +15,22 @@ class GamePage extends StatelessWidget {
       backgroundColor: AppColors.white,
       body: BlocBuilder<GameCubit, GameState>(
         builder: (context, state) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              LostFiguresWidget(figures: state.blackLost),
-              BoardWidget(
-                availablePositionsHash: state.availablePositionsHash,
-                board: state.board,
-                selectedCell: state.selectedCell,
+          return Center(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: 720),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  LostFiguresWidget(figures: state.blackLost),
+                  BoardWidget(
+                    availablePositionsHash: state.availablePositionsHash,
+                    board: state.board,
+                    selectedCell: state.selectedCell,
+                  ),
+                  LostFiguresWidget(figures: state.whiteLost),
+                ],
               ),
-              LostFiguresWidget(figures: state.whiteLost),
-            ],
+            ),
           );
         },
       ),
